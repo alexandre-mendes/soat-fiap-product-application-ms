@@ -1,9 +1,11 @@
 import { ProductRepository } from "../../application/repository/ProductRepository";
 import { AddProductUseCase } from "../../application/usecase/AddProductUseCase";
+import { FindProductByIdUseCase } from "../../application/usecase/FindProductByIdUseCase";
 import { FindProductsByCategoryUseCase } from "../../application/usecase/FindProductsByCategoryUseCase";
 import { DefaultAddProductUseCase } from "../../application/usecase/implementations/command/DefaultAddProductUseCase";
 import { DefaultRemoveProductUseCase } from "../../application/usecase/implementations/command/DefaultRemoveProductUseCase";
 import { DefaultUpdateProductUseCase } from "../../application/usecase/implementations/command/DefaultUpdateProductUseCase";
+import { DefaultFindProductByIdUseCase } from "../../application/usecase/implementations/query/DefaultFindProductByIdUseCase";
 import { DefaultFindProductsByCategoryUseCase } from "../../application/usecase/implementations/query/DefaultFindProductsByCategoryUseCase";
 import { RemoveProductUseCase } from "../../application/usecase/RemoveProductUseCase";
 import { UpdateProductUseCase } from "../../application/usecase/UpdateProductUseCase";
@@ -33,10 +35,11 @@ const productRepository: ProductRepository = new DefaultProductRepository(produc
 */
 const addProductUseCase: AddProductUseCase                          = new DefaultAddProductUseCase(productRepository);
 const findProductsByCategoryUseCase: FindProductsByCategoryUseCase  = new DefaultFindProductsByCategoryUseCase(productRepository);
+const findProductByIdUseCase: FindProductByIdUseCase                = new DefaultFindProductByIdUseCase(productRepository);
 const removeProductUseCase: RemoveProductUseCase                    = new DefaultRemoveProductUseCase(productRepository);
 const updateProductUseCase: UpdateProductUseCase                    = new DefaultUpdateProductUseCase(productRepository);
 
 /*
     Controllers
 */
-export const productController: ProductController = new ProductController(addProductUseCase, updateProductUseCase, removeProductUseCase, findProductsByCategoryUseCase);
+export const productController: ProductController = new ProductController(addProductUseCase, updateProductUseCase, removeProductUseCase, findProductByIdUseCase, findProductsByCategoryUseCase);

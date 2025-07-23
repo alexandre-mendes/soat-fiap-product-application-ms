@@ -162,6 +162,45 @@ paths:
         '500':
           description: Erro interno do servidor
 
+    get:
+      summary: Busca produto por id
+      description: Retorna os dados de um produto por id.
+      tags:
+        - Produtos
+      parameters:
+        - in: path
+          name: id
+          required: true
+      responses:
+        '200':
+          description: Produto encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  price:
+                    type: number
+                  category:
+                    type: string
+        '400':
+          description: Dados inválidos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '500':
+          description: Erro interno do servidor
+
   /api/products/category/{category}:
     get:
       summary: Listar produtos por categoria
@@ -210,3 +249,4 @@ paths:
                     type: string
         '500':
           description: Erro interno do servidor
+    
