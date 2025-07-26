@@ -5,6 +5,7 @@ import { UpdateProductUseCase } from "../../../../src/application/usecase/Update
 import { ProductController } from "../../../../src/infra/api/controller/ProductController";
 import { Request, Response } from "express";
 import { Product } from "../../../../src/domain/entity/Product";
+import { FindProductByIdUseCase } from "../../../../src/application/usecase/FindProductByIdUseCase";
 
 describe('Testa adição de produto', () => {
 
@@ -12,6 +13,7 @@ describe('Testa adição de produto', () => {
     let mockAddProductUseCase: jest.Mocked<AddProductUseCase>;
     let mockUpdateProductUseCase: jest.Mocked<UpdateProductUseCase>;
     let mockRemoveProductUseCase: jest.Mocked<RemoveProductUseCase>;
+    let mockFindProductByIdUseCase: jest.Mocked<FindProductByIdUseCase>;
     let mockFindProductsByCategoryUseCase: jest.Mocked<FindProductsByCategoryUseCase>;
 
     let mockResponse: jest.Mocked<Response>;
@@ -24,9 +26,10 @@ describe('Testa adição de produto', () => {
         mockAddProductUseCase = { execute: jest.fn() } as jest.Mocked<AddProductUseCase>;
         mockUpdateProductUseCase = { execute: jest.fn() } as jest.Mocked<UpdateProductUseCase>;
         mockRemoveProductUseCase = { execute: jest.fn() } as jest.Mocked<RemoveProductUseCase>;
+        mockFindProductByIdUseCase = { execute: jest.fn() } as jest.Mocked<FindProductByIdUseCase>;
         mockFindProductsByCategoryUseCase = { execute: jest.fn() } as jest.Mocked<FindProductsByCategoryUseCase>;
 
-        productController = new ProductController(mockAddProductUseCase, mockUpdateProductUseCase, mockRemoveProductUseCase, mockFindProductsByCategoryUseCase);
+        productController = new ProductController(mockAddProductUseCase, mockUpdateProductUseCase, mockRemoveProductUseCase, mockFindProductByIdUseCase, mockFindProductsByCategoryUseCase);
     });
 
     afterEach(() => {
