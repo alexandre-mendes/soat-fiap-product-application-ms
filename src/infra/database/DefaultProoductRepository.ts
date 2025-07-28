@@ -1,7 +1,8 @@
 import { ProductRepository } from "../../application/repository/ProductRepository";
 import { CategoryType, Product } from "../../domain/entity/Product";
-import { DBCriteria, DBOperation, DBQuery, IDatabase } from "./dynamo/IDatabase";
-import { IProduct } from "./dynamo/ProductDynamoDatabase";
+import { DBCriteria, DBOperation, DBQuery, IDatabase } from "./postgre/IDatabase";
+import { IProduct } from "./postgre/ProductPostgreDatabase";
+
 
 export class DefaultProductRepository implements ProductRepository {
 

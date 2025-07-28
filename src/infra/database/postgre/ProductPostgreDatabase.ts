@@ -1,5 +1,5 @@
 import knex, { Knex } from "knex";
-import { DBOperation, DBQuery, IDatabase } from "../dynamo/IDatabase";
+import { DBOperation, DBQuery, IDatabase } from "./IDatabase";
 import knexfile from "../knex/knexfile";
 
 export interface IProduct {
