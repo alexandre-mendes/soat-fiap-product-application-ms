@@ -11,14 +11,9 @@ import { RemoveProductUseCase } from "../../application/usecase/RemoveProductUse
 import { UpdateProductUseCase } from "../../application/usecase/UpdateProductUseCase";
 import { ProductController } from "../api/controller/ProductController";
 import { DefaultProductRepository } from "../database/DefaultProoductRepository";
-import { IDatabase } from "../database/dynamo/IDatabase";
-import { IProduct, ProductDynamoDatabase } from "../database/dynamo/ProductDynamoDatabase";
-import { ProductPostgreDatabase } from "../database/postgre/ProductPostgreDatabase";
+import { IDatabase } from "../database/postgre/IDatabase";
+import { IProduct, ProductPostgreDatabase } from "../database/postgre/ProductPostgreDatabase";
 
-/*
-    Dynamo
-*/
-// const dynamo = new DynamoDb();
 
 /*
     IDatabase - Dynamo

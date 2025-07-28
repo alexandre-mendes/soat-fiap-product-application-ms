@@ -4,13 +4,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/infra/main.ts",
-    "start": "node dist/infra/main.js",
+    "start": "npm run migration && npm run seed && node dist/infra/main.js",
     "build": "tsc",
     "test": "jest --coverage",
     "create-seed": "npx knex seed:make add_initial_products --knexfile ./src/infra/database/knex/knexfile.ts",
-    "run-seed": "npx knex seed:run --knexfile ./src/infra/database/knex/knexfile.ts",
+    "seed": "npx knex seed:run --knexfile ./dist/infra/database/knex/knexfile.js",
     "create-migration": "npx knex migrate:make create_product_table --knexfile ./src/infra/database/knex/knexfile.ts",
-    "run-migration": "npx knex migrate:latest --knexfile ./src/infra/database/knex/knexfile.ts"
+    "migration": "npx knex migrate:latest --knexfile ./dist/infra/database/knex/knexfile.js"
   },
   "author": "",
   "license": "ISC",
