@@ -6,6 +6,7 @@ import cors from "cors";
 import swaggerRouter from './api/swagger';
 import productRouter from './api/productRouter';
 import { DomainError } from '../domain/error/DomainError';
+import healthRouter from './api/healthRouter';
 
 const app = express();
 app.use(cors({
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use(productRouter)
 app.use(swaggerRouter);
+app.use(healthRouter);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
     console.error(err.stack);
