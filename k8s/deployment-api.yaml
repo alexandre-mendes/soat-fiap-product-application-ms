@@ -36,26 +36,26 @@ spec:
             periodSeconds: 10
             failureThreshold: 3
           env:
-            - name: AWS_ACCESS_KEY_ID
+            - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: aws-credentials
-                  key: AWS_ACCESS_KEY_ID
-            - name: AWS_SECRET_ACCESS_KEY
+                  key: DATABASE_USERNAME
+            - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: aws-credentials
-                  key: AWS_SECRET_ACCESS_KEY
-            - name: AWS_SESSION_TOKEN
+                  key: DATABASE_PASSWORD
+            - name: DATABASE_HOST
               valueFrom:
                 secretKeyRef:
                   name: aws-credentials
-                  key: AWS_SESSION_TOKEN
-            - name: AWS_REGION
+                  key: DATABASE_HOST
+            - name: DATABASE_NAME
               valueFrom:
-                configMapKeyRef:
-                  name: soat-fiap-product-application-ms-configmap
-                  key: AWS_REGION
+                secretKeyRef:
+                  name: aws-credentials
+                  key: DATABASE_NAME
           resources:
             requests:
               memory: "62Mi"
