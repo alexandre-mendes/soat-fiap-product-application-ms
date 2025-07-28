@@ -61,10 +61,10 @@ jobs:
       - name: Create Kubernetes Secret with AWS credentials
         run: |
           kubectl create secret generic aws-credentials \
-            --from-literal=DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} \
-            --from-literal=DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
-            --from-literal=DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
-            --from-literal=DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
+            --from-literal=DATABASE_USERNAME='${{ secrets.DATABASE_USERNAME }}' \
+            --from-literal=DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' \
+            --from-literal=DATABASE_HOST='${{ secrets.DATABASE_HOST }}' \
+            --from-literal=DATABASE_NAME='${{ secrets.DATABASE_NAME }}' \
             --dry-run=client -o yaml | kubectl apply -f -
 
 
