@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: soat-fiap-soat-fiap-product-application-ms-application-ms
+  name: soat-fiap-product-application-ms
   labels:
     app: soat-fiap-product-application-ms
 spec:
