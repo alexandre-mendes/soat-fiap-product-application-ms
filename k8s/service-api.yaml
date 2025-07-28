@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fastfood-api
+  name: soat-fiap-product-application-m
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-name: "fastfood-nlb"
+    service.beta.kubernetes.io/aws-load-balancer-name: "soat-fiap-product-application-m-nlb"
     service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
     service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "Name=pedido-nlb,Env=soat"
 spec:
   selector:
-    app: fastfood-api
+    app: soat-fiap-product-application-m
   ports:
   - protocol: TCP
     port: 80
