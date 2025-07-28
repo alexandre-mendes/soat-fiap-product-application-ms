@@ -10,8 +10,7 @@ const config: { [key: string]: Knex.Config } = {
     },
     seeds: {
       directory: './seeds',
-    },
-    debug: true
+    }
   },
 };
 
