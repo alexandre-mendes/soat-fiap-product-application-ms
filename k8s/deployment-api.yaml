@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastfood-api
+  name: soat-fiap-soat-fiap-product-application-ms-application-ms
   labels:
-    app: fastfood-api
+    app: soat-fiap-product-application-ms
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fastfood-api
+      app: soat-fiap-product-application-ms
   template:
     metadata:
       labels:
-        app: fastfood-api
+        app: soat-fiap-product-application-ms
     spec:
       containers:
-        - name: fastfood-api
-          image: 590422439565.dkr.ecr.us-east-1.amazonaws.com/fastfood-api:latest
+        - name: soat-fiap-product-application-ms
+          image: 590422439565.dkr.ecr.us-east-1.amazonaws.com/soat-fiap-product-application-ms:latest
           imagePullPolicy: Always
           ports:
             - name: http
@@ -54,7 +54,7 @@ spec:
             - name: AWS_REGION
               valueFrom:
                 configMapKeyRef:
-                  name: fastfood-configmap
+                  name: soat-fiap-product-application-ms-configmap
                   key: AWS_REGION
           resources:
             requests:

@@ -1,15 +1,15 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: fastfood-api-hpa
+  name: soat-fiap-product-application-ms-hpa
   namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: fastfood-api
-  minReplicas: 2
-  maxReplicas: 10
+    name: soat-fiap-product-application-ms
+  minReplicas: 1
+  maxReplicas: 2
   metrics:
   - type: Resource
     resource:
