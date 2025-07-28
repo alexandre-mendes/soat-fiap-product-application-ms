@@ -10,7 +10,7 @@
     "create-seed": "npx knex seed:make add_initial_products --knexfile ./src/infra/database/knex/knexfile.ts",
     "seed": "npx knex seed:run --knexfile ./dist/infra/database/knex/knexfile.js",
     "create-migration": "npx knex migrate:make create_product_table --knexfile ./src/infra/database/knex/knexfile.ts",
-    "migration": "npx knex migrate:latest --knexfile ./dist/infra/database/knex/knexfile.js"
+    "migration": "npx knex migrate:latest --knexfile ./dist/infra/database/knex/knexfile.js --verbose"
   },
   "author": "",
   "license": "ISC",
